@@ -1,33 +1,46 @@
-.App {
-  text-align: center;
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+/* Show in default resolution screen*/
+div {
+	width: 960px;
+	position: relative;
+	margin: 0 auto;
+	line-height: 1.4em;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+/* If in mobile screen with maximum width 479px. The iPhone screen resolution is 320x480 px (except iPhone4, 640x960) */
+@media only screen and (max-width: 479px) {
+	div {
+		width: 90%;
+	}
+}
+table {
+	border-collapse: collapse;
+	width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+table,
+td,
+th {
+	border: 1px solid #ddd;
+	text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+td,
+th {
+	padding: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+thead {
+	font-weight: bold;
+}
+
+/* classes */
+.user-city,
+.user-company {
+	text-align: right;
 }

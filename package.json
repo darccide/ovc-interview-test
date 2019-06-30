@@ -21,6 +21,7 @@
     "build": "react-scripts build",
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage --colors",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -40,21 +41,33 @@
   },
   "devDependencies": {
     "@types/enzyme": "^3.9.4",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.15",
+    "@types/moxios": "^0.4.8",
     "@types/react-redux": "^7.1.0",
+    "@types/react-test-renderer": "^16.8.2",
+    "@types/redux-mock-store": "^1.0.1",
+    "@types/sinon": "^7.0.13",
+    "axios-mock-adapter": "^1.16.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.3.5",
+    "moxios": "^0.4.0",
+    "react-test-renderer": "^16.8.6",
+    "redux-mock-store": "^1.5.3",
+    "sinon": "^7.3.2",
     "ts-jest": "^24.0.2"
   },
   "jest": {
-    "roots": [
-      "<rootDir>/src"
+    "preset": "ts-jest",
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
     ],
+    "testEnvironment": "node",
     "transform": {
-      "^.+\\.tsx?$": "ts-jest"
+      "^.+\\.jsx?$": "ts-jest"
     },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "testRegex": "/__tests__/.*.test.(js|jsx)$",
     "moduleFileExtensions": [
       "ts",
       "tsx",
@@ -63,8 +76,12 @@
       "json",
       "node"
     ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/__tests__/setupTest.js"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "app/react /**/*.{js,jsx}"
     ]
   }
 }
